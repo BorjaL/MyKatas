@@ -1,3 +1,3 @@
 # MyKatas
-Fizz Buzz
-RPG Combat
+- Fizz Buzz
+- RPG Combat
