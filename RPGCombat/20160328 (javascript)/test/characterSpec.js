@@ -1,3 +1,5 @@
+var sinon = require('sinon');
+
 var character;
 
 describe("Character", function(){
@@ -109,5 +111,51 @@ describe("Character", function(){
 		character.attack(100, enemy);
 
 		expect(enemy.health).toEqual(950);
+	});
+
+	it("can be set a melee attack", function(){
+		character.setAttackType("melee");
+
+		expect(character.attackType).toEqual("melee");
+	});
+
+	it("can be set a ranger attack", function(){
+		character.setAttackType("ranger");
+
+		expect(character.attackType).toEqual("ranger");
+	});
+
+	it("can damage an enemy in a range of two meters if its has melee attack", function(){
+		character.setAttackType("melee");
+		sinon.stub(character, "calculateRange").withArgs(enemy).returns(2);
+
+		character.attack(100, enemy);
+
+		expect(enemy.health).toEqual(900);
+	});
+
+	it("can not damage an enemy in a range higher than two meters if its has melee attack", function(){
+		character.setAttackType("melee");
+		var stub = sinon.stub(character, "calculateRange").withArgs(enemy).returns(3);
+
+		character.attack(100, enemy);
+		expect(enemy.health).toEqual(1000);
+	});
+
+	it("can damage an enemy in a range of twenty meters if its has ranger attack", function(){
+		character.setAttackType("ranger");
+		sinon.stub(character, "calculateRange").withArgs(enemy).returns(20);
+
+		character.attack(100, enemy);
+
+		expect(enemy.health).toEqual(900);
+	});
+
+	it("can not damage an enemy in a range higher than twenty meters if its has ranger attack", function(){
+		character.setAttackType("ranger");
+		var stub = sinon.stub(character, "calculateRange").withArgs(enemy).returns(23);
+
+		character.attack(100, enemy);
+		expect(enemy.health).toEqual(1000);
 	});
 });

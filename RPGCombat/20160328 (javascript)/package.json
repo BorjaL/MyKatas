@@ -1,0 +1,17 @@
+{
+  "name": "RPG_Kata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "character.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jasmine-node test/characterSpec.js"
+  },
+  "author": "BorjaL",
+  "license": "ISC",
+  "devDependencies": {
+    "sinon": "^1.17.3"
+  }
+}

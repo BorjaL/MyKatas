@@ -1,16 +1,20 @@
 
 var character = (function (){
 
-	var attackFunction = function (damage, character){
+	var attackFunction = function (damage, enemy){
 
-		if (character === this){
+		if (isImpossibleToAttack(this, enemy)){
 			return
 		}
-		if (character.health - damage < 0){
-			return character.health = 0;
+		if (enemy.health - damage < 0){
+			return enemy.health = 0;
 		}
 
-		character.health = character.health - modifiedBooster(damage, character, this);
+		enemy.health = enemy.health - modifiedBooster(damage, enemy, this);
+	}
+
+	var isImpossibleToAttack = function (character, enemy){
+		return enemy === character || character.calculateRange(enemy) > limitRangeDependingOnAttack(character)
 	}
 
 	var healFunction = function (points_of_life, character){
@@ -46,9 +50,19 @@ var character = (function (){
 			return damage - (damage * 0.5);
 	}
 
+	var setAttackTypeFunction = function(attackType){
+		this.attackType = attackType;
+	}
+
+	var limitRangeDependingOnAttack = function(character){
+		if (character.attackType === "melee") return 2;
+		if (character.attackType === "ranger") return 20;
+	}
+
 	return {
 		health: 1000,
 		level: 1,
+		attackType: "",
 		isAlive: function(){
 			return this.health > 0;
 		},
@@ -57,6 +71,8 @@ var character = (function (){
 		},
 		attack: attackFunction,
 		heal: healFunction,
+		setAttackType: setAttackTypeFunction,
+		calculateRange: function(enemy){},
 	};
 });
 
