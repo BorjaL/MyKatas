@@ -73,4 +73,12 @@ describe 'bowling-game-kata' do
       expect(game.score).to eq 13
     end
   end
+
+  context 'perfect game' do
+    it 'score equal to 300' do
+      roll_many(12, 10)
+
+      expect(game.score).to eq 300
+    end
+  end
 end
