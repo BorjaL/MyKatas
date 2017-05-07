@@ -15,6 +15,10 @@ describe 'bowling-game-kata' do
     game.roll(5)
   end
 
+  def roll_a_strike
+    game.roll(10)
+  end
+
   context 'a simple roll with 0 pins down' do
     it 'the score must be 0' do
       game.roll(0)
@@ -52,7 +56,7 @@ describe 'bowling-game-kata' do
 
   context 'roll making a strike and then two rolls with 3 and 4 pins down' do
     it 'the score must be 10 of the strike plus the bonus and the later roll\'s score' do
-      game.roll(10) # strike
+      roll_a_strike
       game.roll(3)
       game.roll(4)
       roll_many(16, 0)
