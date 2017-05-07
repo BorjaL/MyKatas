@@ -13,7 +13,11 @@ class Game
     frame_index = 0
     10.times do
       frame_score = @rolls[frame_index] + @rolls[frame_index + 1]
-      @score += frame_score
+      @score += if frame_score == 10
+                  frame_score + @rolls[frame_index + 2]
+                else
+                  frame_score
+                end
       frame_index += 2
     end
     @score
