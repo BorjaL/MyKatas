@@ -81,4 +81,15 @@ describe 'bowling-game-kata' do
       expect(game.score).to eq 300
     end
   end
+
+  context 'tenth frame is a strike' do
+    it 'there are two extra roll with 3 pins downed' do
+      roll_many(18, 0)
+      roll_a_strike
+      game.roll(3)
+      game.roll(3)
+
+      expect(game.score).to eq 16
+    end
+  end
 end
