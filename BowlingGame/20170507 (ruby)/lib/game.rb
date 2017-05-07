@@ -13,12 +13,16 @@ class Game
     frame_index = 0
     10.times do
       frame_score = @rolls[frame_index] + @rolls[frame_index + 1]
-      @score += if spare?(frame_index)
-                  frame_score + @rolls[frame_index + 2]
-                else
-                  frame_score
-                end
-      frame_index += 2
+      if @rolls[frame_index] == 10
+        @score += @rolls[frame_index] + @rolls[frame_index + 1] + @rolls[frame_index + 2]
+        frame_index += 1
+      elsif spare?(frame_index)
+        @score += frame_score + @rolls[frame_index + 2]
+        frame_index += 2
+      else
+        @score += frame_score
+        frame_index += 2
+      end
     end
     @score
   end

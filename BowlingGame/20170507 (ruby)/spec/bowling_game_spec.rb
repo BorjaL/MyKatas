@@ -49,4 +49,14 @@ describe 'bowling-game-kata' do
       expect(game.score).to eq 16
     end
   end
+
+  context 'roll making a strike and then two rolls with 3 and 4 pins down' do
+    it 'the score must be 10 of the strike plus the bonus and the later roll\'s score' do
+      game.roll(10) # strike
+      game.roll(3)
+      game.roll(4)
+      roll_many(16, 0)
+      expect(game.score).to eq 24
+    end
+  end
 end
