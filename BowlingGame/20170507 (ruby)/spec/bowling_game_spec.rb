@@ -10,6 +10,11 @@ describe 'bowling-game-kata' do
     end
   end
 
+  def roll_a_spare
+    game.roll(5)
+    game.roll(5)
+  end
+
   context 'a simple roll with 0 pins down' do
     it 'the score must be 0' do
       game.roll(0)
@@ -38,8 +43,7 @@ describe 'bowling-game-kata' do
 
   context '2 rolls making a spare and a later roll with 3 pins down' do
     it 'the score must be 10 of spare plus the bonus and the later roll\'s score' do
-      game.roll(5)
-      game.roll(5) # spare
+      roll_a_spare
       game.roll(3)
       roll_many(17, 0)
       expect(game.score).to eq 16

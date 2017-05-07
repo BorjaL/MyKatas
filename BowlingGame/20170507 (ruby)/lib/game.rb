@@ -13,7 +13,7 @@ class Game
     frame_index = 0
     10.times do
       frame_score = @rolls[frame_index] + @rolls[frame_index + 1]
-      @score += if frame_score == 10
+      @score += if spare?(frame_index)
                   frame_score + @rolls[frame_index + 2]
                 else
                   frame_score
@@ -21,5 +21,11 @@ class Game
       frame_index += 2
     end
     @score
+  end
+
+  private
+
+  def spare?(frame_index)
+    @rolls[frame_index] + @rolls[frame_index + 1] == 10
   end
 end
