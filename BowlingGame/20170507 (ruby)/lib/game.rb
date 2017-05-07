@@ -7,6 +7,6 @@ class Game
   end
 
   def roll(pins_knowcked_down)
-    pins_knowcked_down
+    @score = pins_knowcked_down
   end
 end
