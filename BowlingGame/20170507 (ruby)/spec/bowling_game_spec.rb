@@ -17,4 +17,13 @@ describe 'bowling-game-kata' do
       expect(game.score).to eq 5
     end
   end
+
+  context '10 rolls with 1 pins down each' do
+    it 'the score must be 10' do
+      10.times do
+        game.roll(1)
+      end
+      expect(game.score).to eq 10
+    end
+  end
 end
