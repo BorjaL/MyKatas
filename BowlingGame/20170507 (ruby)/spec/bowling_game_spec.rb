@@ -63,4 +63,14 @@ describe 'bowling-game-kata' do
       expect(game.score).to eq 24
     end
   end
+
+  context 'tenth frame is a spare' do
+    it 'there is a extra roll with 3 pins downed' do
+      roll_many(18, 0)
+      roll_a_spare
+      game.roll(3)
+
+      expect(game.score).to eq 13
+    end
+  end
 end
