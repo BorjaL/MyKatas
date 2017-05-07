@@ -12,7 +12,7 @@ class Game
 
   def score
     10.times do
-      if @rolls[@frame_index] == 10
+      if strike?
         @score += @rolls[@frame_index] + @rolls[@frame_index + 1] + @rolls[@frame_index + 2]
         @frame_index += 1
       elsif spare?
@@ -30,6 +30,10 @@ class Game
 
   def spare?
     @rolls[@frame_index] + @rolls[@frame_index + 1] == 10
+  end
+
+  def strike?
+    @rolls[@frame_index] == 10
   end
 
   def frame_score
