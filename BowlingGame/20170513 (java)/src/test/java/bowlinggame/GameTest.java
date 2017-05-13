@@ -14,4 +14,14 @@ public class GameTest {
 
         assertEquals(game.score(), 1);
     }
+
+    @Test
+    public void checkTwoRollsInARow(){
+        Game game = new Game();
+
+        game.roll(2);
+        game.roll(3);
+
+        assertEquals(game.score(), 5);
+    }
 }
