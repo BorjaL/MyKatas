@@ -35,7 +35,12 @@ public class Game {
                 score += frames.get(i + 1).getFirstRoll();
             }
             else if (frame.isStrike()){
-                score += frames.get(i+1).getFirstRoll() + frames.get(i+1).getSecondRoll();
+                if (frames.get(i+1).isStrike()){
+                    score += frames.get(i+1).getFirstRoll() + frames.get(i+2).getFirstRoll();
+                }
+                else {
+                    score += frames.get(i+1).getFirstRoll() + frames.get(i+1).getSecondRoll();
+                }
             }
         }
 

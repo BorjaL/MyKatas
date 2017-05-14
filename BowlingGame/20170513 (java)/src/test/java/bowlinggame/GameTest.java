@@ -46,4 +46,14 @@ public class GameTest {
 
         assertEquals(game.score(), 28);
     }
+
+    @Test
+    public void strikeScoreAfterAnotherStrike(){
+        game.roll(10);
+        game.roll(10);
+        game.roll(4);
+        game.roll(3);
+
+        assertEquals(game.score(), 48);
+    }
 }
