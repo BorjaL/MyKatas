@@ -28,4 +28,13 @@ public class GameTest {
 
         assertEquals(game.score(), 5);
     }
+
+    @Test
+    public void spareScore(){
+        game.roll(5);
+        game.roll(5);
+        game.roll(4);
+
+        assertEquals(game.score(), 18);
+    }
 }

@@ -27,9 +27,14 @@ public class Game {
     }
 
     public int score(){
-        frames.forEach((frame)->{
+        for (int i = 0; i < frames.size(); i++){
+            Frame frame = frames.get(i);
             score += frame.getPinsDown();
-        });
+
+            if (frame.isSpare()){
+                score += frames.get(i+1).getFirstRoll();
+            }
+        }
 
         return score;
     }
