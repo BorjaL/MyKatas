@@ -18,7 +18,7 @@ public class Frame {
     }
 
     public boolean isComplete(){
-        return this.rolls == 2;
+        return this.rolls == 2 || this.isStrike();
     }
 
     public int getPinsDown(){

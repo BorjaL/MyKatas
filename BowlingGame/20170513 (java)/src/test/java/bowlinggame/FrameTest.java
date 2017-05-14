@@ -51,4 +51,19 @@ public class FrameTest {
         assertEquals(frame.isStrike(), true);
     }
 
+    @Test
+    public void isCompleteSpare() throws Exception {
+        Frame frame = new Frame();
+        frame.addRoll(5);
+        frame.addRoll(5);
+        assertEquals(frame.isComplete(), true);
+    }
+
+    @Test
+    public void isCompleteStrike() throws Exception {
+        Frame frame = new Frame();
+        frame.addRoll(10);
+        assertEquals(frame.isComplete(), true);
+    }
+
 }
