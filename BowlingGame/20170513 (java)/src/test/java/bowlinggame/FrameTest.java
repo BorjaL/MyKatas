@@ -28,4 +28,12 @@ public class FrameTest {
         assertEquals(frame.isComplete(), true);
     }
 
+    @Test
+    public void isSpare() throws Exception {
+        Frame frame = new Frame();
+        frame.addRoll(4);
+        frame.addRoll(6);
+        assertEquals(frame.isSpare(), true);
+    }
+
 }
