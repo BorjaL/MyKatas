@@ -27,7 +27,7 @@ public class Frame {
     }
 
     public int getPinsDown(){
-        return this.pinsDown[0] + this.pinsDown[1];
+        return this.pinsDown[0] + this.pinsDown[1] + this.pinsDown[2];
     }
 
     public boolean isSpare(){
