@@ -1,20 +1,26 @@
 package bowlinggame;
 
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class FrameTest {
 
+    Frame frame;
+
+    @Before
+    public void initializeGame(){
+        frame = new Frame();
+    }
+
     @Test
     public void checkAddRollWorks() {
-        Frame frame = new Frame();
         frame.addRoll(5);
         assertEquals(frame.getPinsDown(), 5);
     }
 
     @Test
     public void checkTwoRollsInARow() throws Exception {
-        Frame frame = new Frame();
         frame.addRoll(5);
         frame.addRoll(1);
         assertEquals(frame.getPinsDown(), 6);
@@ -22,7 +28,6 @@ public class FrameTest {
 
     @Test
     public void isComplete() throws Exception {
-        Frame frame = new Frame();
         frame.addRoll(5);
         frame.addRoll(1);
         assertEquals(frame.isComplete(), true);
@@ -30,7 +35,6 @@ public class FrameTest {
 
     @Test
     public void isSpare() throws Exception {
-        Frame frame = new Frame();
         frame.addRoll(4);
         frame.addRoll(6);
         assertEquals(frame.isSpare(), true);
@@ -38,7 +42,6 @@ public class FrameTest {
 
     @Test
     public void getFirstRoll() throws Exception {
-        Frame frame = new Frame();
         frame.addRoll(4);
         frame.addRoll(6);
         assertEquals(frame.getFirstRoll(), 4);
@@ -46,14 +49,12 @@ public class FrameTest {
 
     @Test
     public void isStrike() throws Exception {
-        Frame frame = new Frame();
         frame.addRoll(10);
         assertEquals(frame.isStrike(), true);
     }
 
     @Test
     public void isCompleteSpare() throws Exception {
-        Frame frame = new Frame();
         frame.addRoll(5);
         frame.addRoll(5);
         assertEquals(frame.isComplete(), true);
@@ -61,14 +62,12 @@ public class FrameTest {
 
     @Test
     public void isCompleteStrike() throws Exception {
-        Frame frame = new Frame();
         frame.addRoll(10);
         assertEquals(frame.isComplete(), true);
     }
 
     @Test
     public void getSecondRoll() throws Exception {
-        Frame frame = new Frame();
         frame.addRoll(1);
         frame.addRoll(5);
         assertEquals(frame.getSecondRoll(), 5);
