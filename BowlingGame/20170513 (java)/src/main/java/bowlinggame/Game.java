@@ -31,8 +31,11 @@ public class Game {
             Frame frame = frames.get(i);
             score += frame.getPinsDown();
 
-            if (frame.isSpare()){
-                score += frames.get(i+1).getFirstRoll();
+            if (frame.isSpare()) {
+                score += frames.get(i + 1).getFirstRoll();
+            }
+            else if (frame.isStrike()){
+                score += frames.get(i+1).getFirstRoll() + frames.get(i+1).getSecondRoll();
             }
         }
 

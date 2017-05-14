@@ -37,4 +37,13 @@ public class GameTest {
 
         assertEquals(game.score(), 18);
     }
+
+    @Test
+    public void strikeScore(){
+        game.roll(10);
+        game.roll(5);
+        game.roll(4);
+
+        assertEquals(game.score(), 28);
+    }
 }
