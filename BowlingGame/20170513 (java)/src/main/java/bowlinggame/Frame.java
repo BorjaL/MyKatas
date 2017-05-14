@@ -10,7 +10,7 @@ public class Frame {
 
     public Frame(int index) {
         this.rolls = 0;
-        this.pinsDown = new int[2];
+        this.pinsDown = new int[3];
         this.index = index;
     }
 
@@ -20,6 +20,9 @@ public class Frame {
     }
 
     public boolean isComplete(){
+        if (this.isLastFrame()){
+            return this.rolls == 3 || (this.rolls == 2 && this.getPinsDown() < 10);
+        }
         return this.rolls == 2 || this.isStrike();
     }
 

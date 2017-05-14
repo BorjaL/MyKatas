@@ -74,8 +74,26 @@ public class FrameTest {
     }
 
     @Test
-    public void isLastFrame() throws Exception {
+    public void isCompleteLastFrame() throws Exception {
         frame = new Frame(9);
-        assertEquals(frame.isLastFrame(), true);
+        frame.addRoll(1);
+        frame.addRoll(5);
+        assertEquals(frame.isComplete(), true);
+    }
+
+    @Test
+    public void isNotCompleteLastFrameStrike() throws Exception {
+        frame = new Frame(9);
+        frame.addRoll(10);
+        assertEquals(frame.isComplete(), false);
+    }
+
+    @Test
+    public void isCompleteLastFrameStrike() throws Exception {
+        frame = new Frame(9);
+        frame.addRoll(10);
+        frame.addRoll(3);
+        frame.addRoll(2);
+        assertEquals(frame.isComplete(), true);
     }
 }
