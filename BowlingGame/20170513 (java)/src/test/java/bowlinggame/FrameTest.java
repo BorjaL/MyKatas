@@ -44,4 +44,11 @@ public class FrameTest {
         assertEquals(frame.getFirstRoll(), 4);
     }
 
+    @Test
+    public void isStrike() throws Exception {
+        Frame frame = new Frame();
+        frame.addRoll(10);
+        assertEquals(frame.isStrike(), true);
+    }
+
 }
