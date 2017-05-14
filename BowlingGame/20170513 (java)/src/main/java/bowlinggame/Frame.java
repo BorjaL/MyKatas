@@ -6,10 +6,12 @@ public class Frame {
 
     private int rolls;
     private int[] pinsDown;
+    private int index;
 
-    public Frame() {
+    public Frame(int index) {
         this.rolls = 0;
         this.pinsDown = new int[2];
+        this.index = index;
     }
 
     public void addRoll(int pinsDown){

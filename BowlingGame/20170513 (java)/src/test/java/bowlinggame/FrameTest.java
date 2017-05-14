@@ -10,7 +10,7 @@ public class FrameTest {
 
     @Before
     public void initializeGame(){
-        frame = new Frame();
+        frame = new Frame(1);
     }
 
     @Test
