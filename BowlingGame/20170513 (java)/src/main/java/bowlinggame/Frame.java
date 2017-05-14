@@ -36,4 +36,8 @@ public class Frame {
     public boolean isStrike(){
         return this.getPinsDown() == 10 && this.rolls == 1;
     }
+
+    public int getSecondRoll(){
+        return pinsDown[1];
+    }
 }

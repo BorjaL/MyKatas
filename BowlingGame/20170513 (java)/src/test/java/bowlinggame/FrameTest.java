@@ -66,4 +66,12 @@ public class FrameTest {
         assertEquals(frame.isComplete(), true);
     }
 
+    @Test
+    public void getSecondRoll() throws Exception {
+        Frame frame = new Frame();
+        frame.addRoll(1);
+        frame.addRoll(5);
+        assertEquals(frame.getSecondRoll(), 5);
+    }
+
 }
