@@ -36,4 +36,12 @@ public class FrameTest {
         assertEquals(frame.isSpare(), true);
     }
 
+    @Test
+    public void getFirstRoll() throws Exception {
+        Frame frame = new Frame();
+        frame.addRoll(4);
+        frame.addRoll(6);
+        assertEquals(frame.getFirstRoll(), 4);
+    }
+
 }

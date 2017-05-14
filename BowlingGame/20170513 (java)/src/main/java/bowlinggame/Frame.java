@@ -28,4 +28,8 @@ public class Frame {
     public boolean isSpare(){
         return this.getPinsDown() == 10 && this.rolls == 2;
     }
+
+    public int getFirstRoll(){
+        return pinsDown[0];
+    }
 }
