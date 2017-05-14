@@ -42,4 +42,8 @@ public class Frame {
     public int getSecondRoll(){
         return pinsDown[1];
     }
+
+    public boolean isLastFrame(){
+        return this.index == 9;
+    }
 }

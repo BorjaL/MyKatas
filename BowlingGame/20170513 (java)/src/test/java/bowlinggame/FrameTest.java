@@ -73,4 +73,9 @@ public class FrameTest {
         assertEquals(frame.getSecondRoll(), 5);
     }
 
+    @Test
+    public void isLastFrame() throws Exception {
+        frame = new Frame(9);
+        assertEquals(frame.isLastFrame(), true);
+    }
 }
