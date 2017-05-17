@@ -3,7 +3,7 @@ class StringCalculator
     def add(numbers)
       return 0 if numbers.empty?
 
-      numbers_array = numbers.split(',')
+      numbers_array = numbers.split(/\n|,/)
       return array_sum(numbers_array) if numbers_array.size >= 2
 
       numbers.to_i

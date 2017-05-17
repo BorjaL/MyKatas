@@ -25,5 +25,11 @@ describe StringCalculator do
         expect(StringCalculator.add('1,2,3,1,2,3')).to eq 12
       end
     end
+
+    context 'given a string with \n and commas as delimiters' do
+      it 'returns the sum of all' do
+        expect(StringCalculator.add("1,2,3\n1,2\n3")).to eq 12
+      end
+    end
   end
 end
