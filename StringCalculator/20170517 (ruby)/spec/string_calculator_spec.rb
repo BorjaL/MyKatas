@@ -19,5 +19,11 @@ describe StringCalculator do
         expect(StringCalculator.add('1,2')).to eq 3
       end
     end
+
+    context 'given six numbers string separated by commas' do
+      it 'returns the sum of all' do
+        expect(StringCalculator.add('1,2,3,1,2,3')).to eq 12
+      end
+    end
   end
 end
